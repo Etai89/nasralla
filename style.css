@@ -43,20 +43,32 @@ body{
 @media (max-width: 800px){
     body{
         text-align: center;
-        background-color: rgb(14, 12, 12);
+        background-color: blue;
     }
     #main{
         display: grid;
         grid-template-columns: 1fr;
+        justify-content: space-around;
     }
 
     #game{
         border: 1px solid white;
-        width: 360px;
+        width: 320px;
         height: 270px;
         cursor: crosshair;
         position: relative;
         background-image: url('pic/lebanon.png');
         background-size: 135%;
+        
+    }
+}
+@media (min-width: 400px){
+    body{
+        background-color: brown;
+    }
+    #game{
+        padding: 1%;
+        width: 500px;
+        height: 300px;
     }
 }
