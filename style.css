@@ -43,7 +43,7 @@ body{
 @media (max-width: 800px){
     body{
         text-align: center;
-        background-color: blue;
+        background-color: rgb(0, 0, 0);
     }
     #main{
         display: grid;
@@ -53,22 +53,22 @@ body{
 
     #game{
         border: 1px solid white;
-        width: 330px;
-        height: 280px;
+        width: 335px;
+        height: 350px;
         cursor: crosshair;
         position: relative;
         background-image: url('pic/lebanon.png');
-        background-size: 150%;
+        background-size: 190%;
         
     }
 }
 @media (min-width: 400px){
     body{
-        background-color: brown;
+        background-color: rgb(0, 0, 0);
     }
     #game{
         padding: 1%;
-        width: 650px;
+        width: 670px;
         height: 300px;
     }
 }
