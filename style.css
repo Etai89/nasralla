@@ -54,11 +54,11 @@ body{
     #game{
         border: 1px solid white;
         width: 330px;
-        height: 270px;
+        height: 280px;
         cursor: crosshair;
         position: relative;
         background-image: url('pic/lebanon.png');
-        background-size: 135%;
+        background-size: 150%;
         
     }
 }
