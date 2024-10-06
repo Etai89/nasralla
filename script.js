@@ -30,6 +30,8 @@ let nasralla;
 
 var audio = new Audio('audio/song1.mp3');
 var shotgun = new Audio('audio/shotgun.mp3');
+var claps = new Audio('audio/claps.mp3');
+
 
 let heats = 0
 heatsScore.textContent = `ניקוד: ${heats}`
@@ -48,47 +50,55 @@ start.addEventListener('click', () => {
     moveNasralla();
 });
 
-
+let moveNasrallaInterval
 function moveNasralla() {
-    setInterval(() => {
+    moveNasrallaInterval = setInterval(() => {
         const gameRect = game.getBoundingClientRect();
         const nasrallaRect = nasralla.getBoundingClientRect();
 
         // Calculate random positions within the game area
         const randomX = Math.random() * (gameRect.width - nasrallaRect.width);
         const randomY = Math.random() * (gameRect.height - nasrallaRect.height);
-
-        // Update nasralla's position
+        const minWidth = 15; // in pixels
+        const maxWidth = 50; // in pixels
+    
+        // Generate a random width within the range
+        const randWidth = Math.random() * (maxWidth - minWidth) + minWidth;
+        
+        // Update nasralla's position and size
         nasralla.style.left = `${randomX}px`;
         nasralla.style.top = `${randomY}px`;
+        nasralla.style.width = `${randWidth}px`;
     }, 1000); // Change position every 1 second (1000 ms)
 
     nasralla.addEventListener('click', () => {
-        heats++ + 1
-        shotgun.play()
-        heatsScore.textContent = `ניקוד: ${heats}`
-        if (heats === 10) {
-            gameStatus.textContent = "חיסלת את נסראללה"
-            startStopTimer()
-            
-            
+        heats++;
+        shotgun.play();
+        heatsScore.textContent = `ניקוד: ${heats}`;
+        
+
+
+        if (heats === 20) {
+            gameStatus.textContent = "חיסלת את נסראללה";
+            claps.play();
+            startStopTimer(); // Stop the timer
+            clearInterval(moveNasrallaInterval); // Stop nasralla movement
         }
-        let timefix =() =>{
+
+        // Calculate elapsed time
+        let timefix = () => {
             let timeText = document.querySelector('#stopWatch').textContent.replace("זמן: ", '');
             let [minutes, seconds] = timeText.split(':').map(Number);
-            let lastTime = (minutes * 60) + seconds;
-            return lastTime
+            return (minutes * 60) + seconds;
+        };
+        let theLastTime = timefix();
+
+
+        if (heats < 20 && theLastTime >= 19) {
+            gameStatus.textContent = "נכשלת בחיסול של נסראללה";
+            clearInterval(moveNasrallaInterval); // Stop nasralla movement if time runs out
+            startStopTimer()
         }
-        
-        
-        let theLastTime = timefix()
+    });
 
-
-        if (heats < 10 && theLastTime >= 10) {
-            gameStatus.textContent = "You lost to Nasrralla";
-            return
-        }
-
-
-    })
 }
