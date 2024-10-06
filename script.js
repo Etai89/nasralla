@@ -89,7 +89,7 @@ start.addEventListener('click', () => {
 
     if (difirculty.value === "קל") changeTime = 1000
     else if (difirculty.value === "בינוני") changeTime = 800
-    else if (difirculty.value === "קשה") changeTime = 500
+    else if (difirculty.value === "קשה") changeTime = 650
 
     startStopTimer()
     audio.play()
