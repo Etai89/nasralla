@@ -52,8 +52,8 @@ body{
 
     #game{
         border: 1px solid white;
-        width: 380px;
-        height: 290px;
+        width: 360px;
+        height: 270px;
         cursor: crosshair;
         position: relative;
         background-image: url('pic/lebanon.png');
