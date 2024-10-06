@@ -52,13 +52,14 @@ body{
     }
 
     #game{
+        margin-top: 10%;
         border: 1px solid white;
-        width: 335px;
-        height: 350px;
+        width: 350px;
+        height: 400px;
         cursor: crosshair;
         position: relative;
         background-image: url('pic/lebanon.png');
-        background-size: 190%;
+        background-size: 206%;
         
     }
 }
