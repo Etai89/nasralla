@@ -2,8 +2,9 @@ body{
     text-align: center;
     background-image: url('pic/idf2.gif');
     background-size: 150%;
+    background-repeat: no-repeat;
     color: white;
-    direction: rtl;
+    direction: ltr;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
@@ -11,6 +12,7 @@ body{
     display: flex;
     justify-content: space-around;
     gap: 50px;
+    width: 98%;
 }
 #game{
     
@@ -41,6 +43,7 @@ body{
 @media (max-width: 800px){
     body{
         text-align: center;
+        background-color: rgb(14, 12, 12);
     }
     #main{
         display: grid;
@@ -49,8 +52,8 @@ body{
 
     #game{
         border: 1px solid white;
-        width: 400px;
-        height: 300px;
+        width: 380px;
+        height: 290px;
         cursor: crosshair;
         position: relative;
         background-image: url('pic/lebanon.png');
